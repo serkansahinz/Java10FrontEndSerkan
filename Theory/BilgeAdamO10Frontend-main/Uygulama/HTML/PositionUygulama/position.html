@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+      }
+      .outer {
+        width: 800px;
+        height: 800px;
+        border: 5px solid blue;
+        position: relative;
+      }
+      .fix {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+        top: 0;
+        left: 400px;
+        border: 3px solid gray;
+      }
+      .innerorange {
+        background-color: bisque;
+        width: 350px;
+        height: 350px;
+        border: 2px solid red;
+        position: absolute;
+        top: 200px;
+        left: 20px;
+      }
+      .relative1{
+        width: 100px;
+        height: 100px;
+        border: 2px solid gray;
+        top: -20px;
+        right: -20px;
+
+      }
+      .sticky {
+        position: sticky;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border: 3px solid gray;
+        top: 10px;
+        left: 20px;
+      }
+      .absolute2 {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+
+        height: 150px;
+        width: 150px;
+        background-color: burlywood;
+      }
+
+      .absolute3 {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        height: 100px;
+        width: 100px;
+        background-color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="innerorange">
+        <div class="sticky">5sticky</div>
+        <div class="relative1">relative1</div>
+        <div class="absolute2">absolute2</div>
+        <div class="absolute3">absolute3</div>
+          </div>
+      <div class="fix">4fixed</div>
+    </div>
+  </body>
+</html>
