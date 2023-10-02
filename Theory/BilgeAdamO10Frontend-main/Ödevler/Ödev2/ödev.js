@@ -48,8 +48,8 @@ for (const [country, { capital, population, language }] of Object.entries(
 // Küçük bir geliştirici, öğrenci adını, becerilerini ve puanını okunması kolay olmayabilecek diziler halinde yapılandırır. Aşağıdaki dizi adını da, beceriler dizisini becerilere, puan dizisini puanlara, JavaScript puanını jsScore'a ve React puanını React değişkenine tek bir satırda destructuring işlemi uygulayın.
 
 const student = ["David", ["HTML", "CSS", "JS", "React"], [98, 85, 90, 95]];
-const [name, skills, [htmlScore, cssScore, jsScore, reactScore]] = student;
-console.log(name, skills, htmlScore, cssScore, jsScore, reactScore);
+const [names, skills, [htmlScore, cssScore, jsScore, reactScore]] = student;
+console.log(names, skills, htmlScore, cssScore, jsScore, reactScore);
 
 
 
@@ -65,20 +65,16 @@ function convertArrayToObject(array) {
   });
 }
 const students = [
-  ["David", ["HTM", "CSS", "JS", "React"], [98, 85, 90, 95]],
-  ["John", ["HTM", "CSS", "JS", "React"], [85, 80, 85, 80]],
+  ["David", ["HTML", "CSS", "JS", "React"], [98, 85, 90, 95]],
+  ["John", ["HTML", "CSS", "JS", "React"], [85, 80, 85, 80]],
 ];
 console.log(convertArrayToObject(students));
 
 // Öğrenci nesnesini orijinal nesneyi değiştirmeden newStudent değişkenine kopyalayın ve yeni özellikleri ekleyin.
-
 // frontEnd beceri setlerine seviye 8 ile Bootstrap ekleyin
-
-// · backEnd beceri setlerine 9. seviye Express'i ekleyin
-
-// · dataBase beceri setlerine seviye 8 ile SQL ekleyin
-
-// · dataScience beceri setlerine seviye olmadan SQL ekleyin
+// backEnd beceri setlerine 9. seviye Express'i ekleyin
+// dataBase beceri setlerine seviye 8 ile SQL ekleyin
+// dataScience beceri setlerine seviye olmadan SQL ekleyin
 
 const student2 = {
   name: "David",
@@ -99,15 +95,29 @@ const student2 = {
   },
 };
 
-const newStudent = {
-  ...student,
-  skills: {
-    ...student.skills,
-    frontEnd: [...student.skills.frontEnd, { skill: "BootStrap", level: 8 }],
-    backEnd: [...student.skills.backEnd, { skill: "Express", level: 9 }],
-    dataBase: [...student.skills.dataBase, { skill: "SQL", level: 8 }],
-    dataScience: [...student.skills.dataScience, "SQL"],
-  },
-};
+const newStudent2 = { ...student2 };
+newStudent2.skills.frontEnd.push({ skill: "Bootstrap", level: "8" });
 
-console.log(newStudent);
+newStudent2.skills.backEnd.push({ skill: "Express", level: "9" });
+
+newStudent2.skills.dataBase.push({ skill: "SQL", level: "8" });
+
+newStudent2.skills.dataScience.push("SQL");
+
+//   ...student2,
+//   skills: {...student2.skills,
+//     frontEnd: [...student2.skills.frontEnd, { skill: "BootStrap", level: 8 }],
+//     backEnd: [...student2.skills.backEnd, { skill: "Express", level: 9 }],
+//     dataBase: [...student2.skills.dataBase, { skill: "SQL", level: 8 }],
+//     dataScience: [...student2.skills.dataScience, "SQL"],
+//   },
+// };
+
+console.log(newStudent2);
+
+
+
+
+
+ 
+
