@@ -112,7 +112,6 @@ newStudent2.skills.dataScience.push("SQL");
 //     dataScience: [...student2.skills.dataScience, "SQL"],
 //   },
 // };
-
 console.log(newStudent2);
 
 
