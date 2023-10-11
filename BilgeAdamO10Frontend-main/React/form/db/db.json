@@ -37,28 +37,22 @@
       "id": 6
     },
     {
-      "firstname": "sss",
-      "lastname": "aaa",
+      "firstname": "Aminenur",
+      "lastname": "Göynük",
       "gender": "female",
       "id": 7
     },
     {
-      "firstname": "sss",
-      "lastname": "aaa",
+      "firstname": "Aysu",
+      "lastname": "Çağışlar",
       "gender": "female",
       "id": 8
     },
     {
-      "firstname": "ccc",
-      "lastname": "ccc",
+      "firstname": "Soda",
+      "lastname": "",
       "gender": "female",
       "id": 9
-    },
-    {
-      "firstname": "ccc",
-      "lastname": "ccc",
-      "gender": "female",
-      "id": 10
     }
   ],
   "book": [
