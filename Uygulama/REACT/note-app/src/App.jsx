@@ -22,6 +22,13 @@ function App() {
     setNotes(updatedNotes)
   }
 
+  const updateNote = (id , text ) => {
+
+    const updatedNotes = notes.map(note => note.id === id ? {...note, text} : note )
+    setNotes(updatedNotes) 
+    setEditNote("")
+  }
+
   return (
     <div className='app'>
       <h1>Notes App</h1>
@@ -29,7 +36,7 @@ function App() {
         <Notes notes={notes} onStartEditing={startEditing} onDelete={deleteNote}/>
         <AddNote onAdd={addNote}/>
       </div>
-      {editNote && <EditNote/>}
+      {editNote && <EditNote note={editNote} onCancel={() => setEditNote("")} onUpdate={updateNote} />}
     </div>
   )
 }
