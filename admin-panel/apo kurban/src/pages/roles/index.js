@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+
 import { Button, Col, Row, Space, Table, Tag, Tooltip, theme } from "antd";
-import FlowForm from "./form";
-import { addFlow, deleteFlow, getFlows, updateFlow } from "../../services/flow";
-import { getTasks } from "../../services/task";
+import RoleForm from "./form";
+
+import { addRole, deleteRole, getRoles, updateRole } from "../../services/role";
+import { getPermissions } from "../../services/permission";
 
 import {
   DeleteOutlined,
@@ -12,11 +14,11 @@ import {
 } from "@ant-design/icons";
 import "./index.scss";
 
-const Flows = () => {
-  const [flows, setFlows] = useState([]);
+const Roles = () => {
+  const [roles, setRoles] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingFlow, setEditingFlows] = useState();
-  const [tasks, setTasks] = useState([]);
+  const [editingRole, setEditingRoles] = useState();
+  const [permissions, setPermissions] = useState([]);
   const {
     token: { colorPrimary, colorPrimaryActive },
   } = theme.useToken();
@@ -24,33 +26,33 @@ const Flows = () => {
   const onCancel = () => {
     setIsModalOpen(false);
   };
-  const onClickAddFlow = () => {
-    setEditingFlows();
+  const onClickAddRole = () => {
+    setEditingRoles();
     setIsModalOpen(true);
   };
 
   const onFinish = (values) => {
-    if (editingFlow) {
-      updateFlow({ ...values, id: editingFlow.id }).then((response) => {
-        setFlows((prevState) =>
+    if (editingRole) {
+      updateRole({ ...values, id: editingRole.id }).then((response) => {
+        setRoles((prevState) =>
           prevState.map((p) => (p.id === response.id ? response : p))
         );
       });
     } else {
-      addFlow(values).then((response) => {
-        setFlows((prevState) => [...prevState, response]);
+      addRole(values).then((response) => {
+        setRoles((prevState) => [...prevState, response]);
       });
     }
     setIsModalOpen(false);
   };
 
   const onDelete = (id) => {
-    deleteFlow(id).then((response) => {
-      setFlows((prevState) => prevState.filter((t) => t.id !== id));
+    deleteRole(id).then((response) => {
+      setRoles((prevState) => prevState.filter((t) => t.id !== id));
     });
   };
   const onEdit = (permissons) => {
-    setEditingFlows(permissons);
+    setEditingRoles(permissons);
     setIsModalOpen(true);
   };
 
@@ -69,15 +71,15 @@ const Flows = () => {
       ),
     },
     {
-      title: "Tasks",
-      dataIndex: "tasks",
+      title: "Permissions",
+      dataIndex: "permissions",
       key: "r2",
       render: (cell) => {
         return (
           <Space>
             {cell?.map((id) => (
               <Tag key={id} color={colorPrimary}>
-                {tasks.find((p) => p.value === id)?.label}
+                {permissions.find((p) => p.value === id)?.label}
               </Tag>
             ))}
           </Space>
@@ -112,11 +114,11 @@ const Flows = () => {
   ];
 
   useEffect(() => {
-    getFlows().then((response) => {
-      setFlows(response);
+    getRoles().then((response) => {
+      setRoles(response);
     });
-    getTasks().then((response) => {
-      setTasks(
+    getPermissions().then((response) => {
+      setPermissions(
         response.map((p) => ({
           value: p.id,
           label: p.name,
@@ -126,7 +128,7 @@ const Flows = () => {
   }, []);
 
   return (
-    <Space className="flows" direction="vertical">
+    <Space className="roles" direction="vertical">
       <Row>
         <Col flex="auto" />
         <Col>
@@ -134,23 +136,23 @@ const Flows = () => {
             type="primary"
             shape="circle"
             icon={<PlusOutlined />}
-            size="middle"
-            onClick={onClickAddFlow}
+            size="large"
+            onClick={onClickAddRole}
           />
         </Col>
       </Row>
-      <Table dataSource={flows} columns={columns} />
+      <Table dataSource={roles} columns={columns} />
       {isModalOpen && (
-        <FlowForm
+        <RoleForm
           isModalOpen={isModalOpen}
           onCancel={onCancel}
           onFinish={onFinish}
-          initialValues={editingFlow}
-          tasks={tasks}
+          initialValues={editingRole}
+          permissions={permissions}
         />
       )}
     </Space>
   );
 };
 
-export default Flows;
+export default Roles;
