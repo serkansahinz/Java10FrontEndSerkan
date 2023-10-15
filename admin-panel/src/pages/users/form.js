@@ -6,6 +6,7 @@ const UserForm = ({
   onFinish,
   initialValues,
   roles,
+  flows,
 }) => {
   return (
     <Modal
@@ -107,6 +108,19 @@ const UserForm = ({
           ]}
         >
           <Select mode="tags" options={roles} />
+        </Form.Item>
+
+        <Form.Item
+          label="Flows"
+          name="flows"
+          rules={[
+            {
+              required: true,
+              message: "Please select! any flow",
+            },
+          ]}
+        >
+          <Select mode="tags" options={flows} />
         </Form.Item>
 
         <Form.Item

@@ -9,6 +9,11 @@ export const getPermissions = async () => {
   return response.data;
 };
 
+export const getPermissionCount = async () => {
+  const response = await axios.get(permissionUrl);
+  return response.data.length;
+};
+
 export const getPermission = async (id) => {
   const response = await axios.get(`${permissionUrl}/${id}`);
   return response.data;

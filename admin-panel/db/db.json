@@ -9,6 +9,9 @@
       "roles": [
         4
       ],
+      "flows": [
+        1
+      ],
       "id": 2
     },
     {
@@ -21,6 +24,9 @@
         3,
         5
       ],
+      "flows": [
+        1
+      ],
       "id": 3
     },
     {
@@ -30,6 +36,9 @@
       "age": 31,
       "address": "adress1",
       "roles": [
+        3
+      ],
+      "flows": [
         3
       ],
       "id": 4
@@ -43,18 +52,12 @@
       "roles": [
         5
       ],
-      "id": 5
-    },
-    {
-      "firstname": "Serkan Şahin",
-      "lastname": "ZORLU",
-      "email": "serkansahinz@outlook.com",
-      "age": 31,
-      "address": "Gonya:(",
-      "roles": [
-        5
+      "flows": [
+        1,
+        2,
+        3
       ],
-      "id": 6
+      "id": 5
     }
   ],
   "role": [
@@ -74,8 +77,8 @@
       "name": "Standart User",
       "permissions": [
         7,
-        8,
-        5
+        5,
+        8
       ],
       "id": 4
     },
@@ -118,22 +121,43 @@
     {
       "name": "Task2",
       "id": 2
+    },
+    {
+      "name": "Task3",
+      "id": 3
     }
   ],
   "flow": [
     {
-      "name": "flow1",
+      "name": "Flow 1",
       "tasks": [
         1
       ],
       "id": 1
     },
     {
-      "name": "Flow2",
+      "name": "Flow 2",
       "tasks": [
-        "Task2"
+        1
       ],
       "id": 2
+    },
+    {
+      "name": "Flow 3",
+      "tasks": [
+        2,
+        1
+      ],
+      "id": 3
+    },
+    {
+      "name": "Flow 4",
+      "tasks": [
+        1,
+        2,
+        3
+      ],
+      "id": 4
     }
   ]
 }

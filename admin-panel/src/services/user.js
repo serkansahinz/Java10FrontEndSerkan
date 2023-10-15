@@ -6,6 +6,11 @@ export const getUsers = async () => {
   return response.data;
 };
 
+export const getUserCount = async () => {
+  const response = await axios.get(userUrl);
+  return response.data.length;
+};
+
 export const getUser = async (id) => {
   const response = await axios.get(`${userUrl}/${id}`);
   return response.data;

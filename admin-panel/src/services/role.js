@@ -6,6 +6,11 @@ export const getRoles = async () => {
   return response.data;
 };
 
+export const getRoleCount = async () => {
+  const response = await axios.get(roleUrl);
+  return response.data.length;
+};
+
 export const getRole = async (id) => {
   const response = await axios.get(`${roleUrl}/${id}`);
   return response.data;

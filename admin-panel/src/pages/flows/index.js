@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+
 import { Button, Col, Row, Space, Table, Tag, Tooltip, theme } from "antd";
 import FlowForm from "./form";
-import { addFlow, deleteFlow, getFlows, updateFlow } from "../../services/flow";
+
+import {
+  addFlow,
+  deleteFlow,
+  getFlows,
+  updateFlow,
+} from "../../services/flows";
 import { getTasks } from "../../services/task";
 
 import {
@@ -134,7 +141,7 @@ const Flows = () => {
             type="primary"
             shape="circle"
             icon={<PlusOutlined />}
-            size="middle"
+            size="large"
             onClick={onClickAddFlow}
           />
         </Col>
